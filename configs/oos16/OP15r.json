@@ -6,15 +6,15 @@
   "android_version": "android16",
   "kernel_version": "6.12",
   "os_version": "OOS16",
-  "lto": "none",
+  "lto": "full",
   "rust_build": true,
   "disk_cleanup": true,
   "hmbird": false,
-  "susfs": true,
+  "susfs": false,
   "bbg": true,
   "bbr": true,
   "ttl": true,
   "ip_set": true,
   "unicode": true,
-  "uname": "奥德大棒"
+  "uname": "weijcc"
 }
