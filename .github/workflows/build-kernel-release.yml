@@ -17,29 +17,19 @@ on:
         required: true
         type: choice
         options:
-          - OOS14+15+16
-          - OOS15+16
-          - OOS14+15
           - OOS16
-          - OOS15
-          - OOS14
-          - android16-6.12
-          - android15-6.6
-          - android14-6.1
-          - android13-5.15
-          - android12-5.10
-        default: OOS14+15+16
+        default: OOS16
       ksu_options:
         description: 'Enter KernelSU build json'
         required: true
         type: string
-        default: '[{"type":"ksun","hash":"dev"}]'
+        default: '[{"type":"ksu","hash":"main"}]'
       optimize_level:
         description: "Compiler optimization level"
         required: true
         type: choice
-        options: [O2, O3]
-        default: O2
+        options: [O3]
+        default: O3
       clean_build:
         description: 'Clean build (no ccache)'
         type: boolean
@@ -109,36 +99,8 @@ jobs:
           jq_filter="."
           
           case "$input" in
-            OOS14+15+16)
-              ;;
-            OOS15+16)
-              jq_filter="map(select(.os_version == \"OOS15\" or .os_version == \"OOS16\"))"
-              ;;
-            OOS14+15)
-              jq_filter="map(select(.os_version == \"OOS14\" or .os_version == \"OOS15\"))"
-              ;;
             OOS16)
               jq_filter="map(select(.os_version == \"OOS16\"))"
-              ;;
-            OOS15)
-              jq_filter="map(select(.os_version == \"OOS15\"))"
-              ;;
-            OOS14)
-              jq_filter="map(select(.os_version == \"OOS14\"))"
-              ;;
-            android*-*.*)
-              # Extract android version and kernel version
-              IFS='-' read -r av kv <<< "$input"
-              
-              # Build android*-* only for OOS15 and OOS16
-              jq_filter="map(select(.os_version == \"OOS15\" or .os_version == \"OOS16\")) | map(select(.android_version == \"$av\" and .kernel_version == \"$kv\"))"
-              
-              echo "ℹ️  Android-Kernel filter applied: $av-$kv"
-              echo "   Restricted to: OOS15 and OOS16 only"
-              ;;
-            *)
-              echo "::warning::Unknown input '$input'. Using empty filter."
-              jq_filter="map(select(false))"
               ;;
           esac
           

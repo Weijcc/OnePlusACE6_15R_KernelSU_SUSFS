@@ -5,7 +5,7 @@
   
   <remote fetch="https://android.googlesource.com" name="aosp"/>
   <default revision="main-kernel-2025" remote="aosp" sync-j="4" />
-  <superproject name="kernel/superproject" remote="aosp" revision="common-android16-6.12-2025-09" />
+  <superproject name="kernel/superproject" remote="aosp" revision="common-android16-6.12-2026-03" />
   
   <project remote="origin" name="android_kernel_common_oneplus_sm8845" path="kernel_platform/common" revision="oneplus/sm8845_b_16.0.0_ace_6t" clone-depth="1">
     <linkfile dest="kernel_platform/.source_date_epoch_dir" src="."/>
