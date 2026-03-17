@@ -9,12 +9,12 @@
   "lto": "none",
   "rust_build": true,
   "disk_cleanup": true,
-  "hmbird": false,
-  "susfs": false,
+  "hmbird": true,
+  "susfs": true,
   "bbg": true,
   "bbr": true,
   "ttl": true,
   "ip_set": true,
   "unicode": true,
-  "uname": "weijcc"
+  "uname": "奥德大棒"
 }
