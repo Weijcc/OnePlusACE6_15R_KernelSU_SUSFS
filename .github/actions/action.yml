@@ -327,6 +327,20 @@ runs:
         KSU_DIR="$KERNEL_PLATFORM_DIR/KernelSU"
         KSUN_DIR="$KERNEL_PLATFORM_DIR/KernelSU-Next"
         mkdir -p "$ARTIFACTS_DIR"
+
+        echo "=========================================================================================="
+        echo "$GITHUB_WORKSPACE"
+        echo "$CONFIG_DIR"
+        echo "$ARTIFACTS_DIR"
+        echo "$KERNEL_PLATFORM_DIR"
+        echo "$COMMON_KERNEL_DIR"
+        echo "$MSM_KERNEL_DIR"
+        echo "$AK3_DIR"
+        echo "$KERNEL_PATCHES_DIR"
+        echo "$SUSFS_DIR"
+        echo "$KSU_DIR"
+        echo "$KSUN_DIR"
+        echo "=========================================================================================="
         
         # Save to environment for later steps
         echo "CONFIG_FOLDER=$CONFIG_DIR" >> "$GITHUB_ENV"
